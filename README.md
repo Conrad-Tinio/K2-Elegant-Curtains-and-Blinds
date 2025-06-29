@@ -16,6 +16,11 @@ Our ultimate goal is to help our customers transform their living spaces into be
 
 ## OUR PROJECTS
 
+
+https://github.com/user-attachments/assets/c9edce56-7104-4c59-9961-627d008cde22
+
+
+
 ## CONTACT US
 Facebook: [K2 Elegant Curtains and Blinds](https://www.facebook.com/k2elegantcurtains) 
 <br> Contact Person: Vanessa Joy S. Paulino 

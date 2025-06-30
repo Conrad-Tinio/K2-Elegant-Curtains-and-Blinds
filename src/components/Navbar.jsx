@@ -1,6 +1,5 @@
 import React, { use, useEffect, useState } from 'react'
 import { cn } from '../lib/utils'
-import { href } from 'react-router-dom'
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
 const navItems = [

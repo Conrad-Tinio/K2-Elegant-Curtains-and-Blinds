@@ -9,6 +9,7 @@
   /* Texts */
   --color-primary: var(--primary); 
   --color-secondary: var(--secondary); 
+  --color-dark-titles: var(--dark-titles); 
 
   /* Cards */
   --color-card: var(--card);
@@ -49,7 +50,7 @@
     --background: #f8e9e1;
     --foreground: #302824;
 
-    --card: #f0b596; 
+    --card: #ffceb3; 
 
     --primary: #cb703f; 
     --secondary: #ffe0cf;
@@ -61,10 +62,11 @@
     --background: #302824;
     --foreground: #ffe0cf;
 
-    --card: #f0b596; 
+    --card: #ffceb3;
 
-    --primary: #e4956a; 
-    --secondary: #ffe0cf;
+    --primary: #cb703f;  
+    --secondary: #43332b;
+    --dark-titles: #43332b;
 
     --border: #ffe0cf;
   }
@@ -87,7 +89,7 @@
 @layer utilities {
   .container {
     margin-inline: auto;
-    padding: 2rem;
+    padding: 1rem;
 
     @media (width >= 640px) {
       max-width: 640px;
@@ -116,7 +118,7 @@
 
   .gradient-border {
     @apply relative rounded-md; 
-    background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+    background: linear-gradient(to right, var(--card), var(--card));
     background-clip: padding-box; 
     border: 1px solid transparent; 
   }

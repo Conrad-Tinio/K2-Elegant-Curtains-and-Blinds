@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { cn } from '../lib/utils'
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
@@ -19,20 +19,22 @@ export default function Navbar() {
             setIsScrolled(window.scrollY > 10); 
         }
 
-        // Theme Storing
-        const storedTheme = localStorage.getItem("theme"); 
-        if (storedTheme === "dark") {
-            setIsDarkMode(true);
-            document.documentElement.classList.add("dark"); 
-        } else {
-            setIsDarkMode(false); 
-            document.documentElement.classList.remove("dark"); 
+        // Theme Storing - FIXED: Check if we're in the browser first
+        if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+            const storedTheme = localStorage.getItem("theme"); 
+            if (storedTheme === "dark") {
+                setIsDarkMode(true);
+                document.documentElement.classList.add("dark"); 
+            } else {
+                setIsDarkMode(false); 
+                document.documentElement.classList.remove("dark"); 
+            }
         }
 
         window.addEventListener("scroll", handleScroll); 
 
         return () => window.removeEventListener("scroll", handleScroll); 
-    })
+    }, []) // Added dependency array
 
     // Prevent body scroll when menu is open
     useEffect(() => {
@@ -51,11 +53,17 @@ export default function Navbar() {
     const toggleTheme = () => {
         if (isDarkMode) {
             document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
+            // FIXED: Check localStorage availability
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem("theme", "light");
+            }
             setIsDarkMode(false);
         } else {
             document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
+            // FIXED: Check localStorage availability
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem("theme", "dark");
+            }
             setIsDarkMode(true); 
         }
     }

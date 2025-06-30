@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter> 
+      <BrowserRouter basename='/K2-Elegant-Curtains-and-Blinds'> 
         <Routes>
           <Route index element={<Home />} />
           <Route path='*' element={<NotFound /> } />

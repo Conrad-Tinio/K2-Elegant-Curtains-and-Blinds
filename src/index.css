@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* Background Themes */
+  --color-border: var(--border); 
+  --color-background: var(--background); 
+  --color-foreground: var(--foreground); 
+
+  /* Texts */
+  --color-primary: var(--primary); 
+  --color-secondary: var(--secondary); 
+
+  /* Cards */
+  --color-card: var(--card);
+
+  /* Animation */
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards; 
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  @keyframes float {
+    0%, 
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    } 
+    to {
+      opacity: 1;
+      transform: translateY(0); 
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: #f8e9e1;
+    --foreground: #302824;
+
+    --card: #f0b596; 
+
+    --primary: #cb703f; 
+    --secondary: #ffe0cf;
+
+    --border: #302824;
+  }
+
+  .dark {
+    --background: #302824;
+    --foreground: #ffe0cf;
+
+    --card: #f0b596; 
+
+    --primary: #e4956a; 
+    --secondary: #ffe0cf;
+
+    --border: #ffe0cf;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth; 
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .container {
+    margin-inline: auto;
+    padding: 2rem;
+
+    @media (width >= 640px) {
+      max-width: 640px;
+    }
+    
+    @media (width >= 768px) {
+      max-width: 768px;
+    }
+    
+    @media (width >= 1024px) {
+      max-width: 1024px;
+    }
+    
+    @media (width >= 1280px) {
+      max-width: 1280px;
+    }
+    
+    @media (width >= 1400px) {
+      max-width: 1400px;
+    }
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg; 
+  }
+
+  .gradient-border {
+    @apply relative rounded-md; 
+    background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+    background-clip: padding-box; 
+    border: 1px solid transparent; 
+  }
+
+  .themed-buttons {
+    @apply px-6 py-2 rounded-full bg-primary text-foreground font-medium transition-all duration-300 hover:scale-105 active:scale-95; 
+  }
+
+  .themed-buttons:hover {
+    box-shadow: 0 0 10px rgba(246, 153, 24, 0.5);
+  }
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}

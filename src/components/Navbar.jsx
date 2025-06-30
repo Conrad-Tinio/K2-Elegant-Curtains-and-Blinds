@@ -63,12 +63,12 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-        "fixed w-full z-40 transition-all duration-300",
+        "fixed w-full z-20 transition-all duration-300",
         isScrolled ? "py-0 bg-background/80 backdrop-blur-md shadow-xs" : "py-2",
     )}>
         <div className='container flex items-center justify-between p-0'>
-            <a href='#home' className='text-xl font-bold flex items-center'>
-                <img src='./logo.svg' className='items-center w-10 h-10 p-0 mr-2'/>
+            <a href='#hero' className='text-xl font-bold flex items-center'>
+                {/* <img src='./logo.svg' className='items-center w-10 h-10 p-0 mr-2'/> */}
                 <span className='relative z-10 text-primary text-left items-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>
                     K2 Elegant Curtains and Blinds
                 </span>
